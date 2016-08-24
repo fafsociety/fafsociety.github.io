@@ -1,1 +1,194 @@
-Hello World!
+<html>
+<head>
+    <title> Book of Om </title>
+    <!--Import Google Icon Font-->
+    <!-- <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
+
+    <link type="text/css" rel="stylesheet" href="metrics-graphics-2.10.1/dist/metricsgraphics.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <script src="http:////cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>    
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="metrics-graphics-2.10.1/dist/metricsgraphics.js"></script>
+</head>
+<body>
+  <div class="navbar-fixed">
+    <nav class = "indigo lighten-2">
+      <div class="nav-wrapper">
+      <a href="index.html" class="brand-logo">Monicas</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="education.html">History</a></li>
+          <li><a href="projects.html">Book of Om</a></li>
+          <li><a href="organizations.html">Profiles</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="education.html">History</a></li>
+          <li><a href="projects.html">Book of Om</a></li>
+          <li><a href="organizations.html">Profiles</a></li>
+          </ul>
+      </div>
+    </nav>
+  </div>
+
+    <div id="vis"></div>
+    <div id="Howie"></div>
+    <div id="Christian"></div>
+    <div id="Karen"></div>
+    <div id="Vicky"></div>
+    <div id="Michelle"></div>
+
+    <script type="text/javascript">
+    //Chart of Monicas chat history
+      d3.json('data/timeSeriesOutput.json', function(data) {
+          data = MG.convert.date(data, 'date');
+          MG.data_graphic({
+              title: "Chat History",
+              data: data,
+              width: 1200,
+              height: 500,
+              right: 40,
+              bottom: 50,
+              baseline: 0,
+              show_tooltips: false,
+              target: '#vis',
+              min_y: 0,
+              animate_on_load: true,
+              linked: true,
+              area: false,
+              x_accessor: 'date',
+              y_accessor: 'value'
+          });
+      });
+
+    //Chart of Howie's chat history
+      d3.json('data/timeSeriesOutputHowie.json', function(data) {
+          data = MG.convert.date(data, 'date');
+          MG.data_graphic({
+              title: "Howie's Chat History",
+              data: data,
+              width: 1200,
+              height: 500,
+              right: 40,
+              bottom: 50,
+              baseline: 0,
+              show_tooltips: false,
+              target: '#Howie',
+              min_y: 0,
+              animate_on_load: true,
+              linked: true,
+              area: false,
+              color: '#8C001A',
+              x_accessor: 'date',
+              y_accessor: 'value'
+          });
+      });
+
+    //Chart of Christian's chat history
+      d3.json('data/timeSeriesOutputChristian.json', function(data) {
+          data = MG.convert.date(data, 'date');
+          MG.data_graphic({
+              title: "Christian's Chat Frequency",
+              data: data,
+              width: 1200,
+              height: 500,
+              right: 40,
+              bottom: 50,
+              baseline: 0,
+              show_tooltips: false,
+              target: '#Christian',
+              min_y: 0,
+              animate_on_load: true,
+              linked: true,
+              area: false,
+              color: '#CC33FF',
+              x_accessor: 'date',
+              y_accessor: 'value'
+          });
+      });
+
+    //Chart of Karen's chat history
+      d3.json('data/timeSeriesOutputKaren.json', function(data) {
+          data = MG.convert.date(data, 'date');
+          MG.data_graphic({
+              title: "Karen's Chat Frequency",
+              data: data,
+              width: 1200,
+              height: 500,
+              right: 40,
+              bottom: 50,
+              baseline: 0,
+              show_tooltips: false,
+              target: '#Karen',
+              min_y: 0,
+              animate_on_load: true,
+              linked: true,
+              area: false,
+              color: '#FFCC00',
+              x_accessor: 'date',
+              y_accessor: 'value'
+          });
+      });
+
+      d3.json('data/timeSeriesOutputVicky.json', function(data) {
+          data = MG.convert.date(data, 'date');
+          MG.data_graphic({
+              title: "Line Chart",
+              data: data,
+              width: 1200,
+              height: 500,
+              right: 40,
+              bottom: 50,
+              baseline: 0,
+              show_tooltips: false,
+              target: '#Vicky',
+              min_y: 0,
+              animate_on_load: true,
+              linked: true,
+              area: false,
+              x_accessor: 'date',
+              y_accessor: 'value'
+          });
+      });
+
+
+      d3.json('data/timeSeriesOutputMichelle.json', function(data) {
+          data = MG.convert.date(data, 'date');
+          MG.data_graphic({
+              title: "Michelle's Chat History",
+              data: data,
+              width: 1200,
+              height: 500,
+              right: 40,
+              bottom: 50,
+              baseline: 0,
+              show_tooltips: false,
+              target: '#Michelle',
+              min_y: 0,
+              animate_on_load: true,
+              linked: true,
+              area: false,
+              color:'#006400',
+              x_accessor: 'date',
+              y_accessor: 'value'
+          });
+      });
+    </script>
+
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+    <script>
+       $(document).ready(function () {
+           $('.slider').slider({
+            indicators: false,
+            height: 450,
+           });
+           $(".button-collapse").sideNav();
+       });
+    </script>
+
+</body>
+
+</html>
